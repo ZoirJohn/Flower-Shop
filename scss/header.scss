@@ -1,0 +1,53 @@
+.header {
+   width: 100%;
+   &__warning {
+      background: #ff8642;
+   }
+}
+
+.warning {
+   color: $white;
+   transition: transform 400ms ease 0s, opacity 0s ease 401ms, visibility 0s ease 401ms;
+   &__container {
+      padding: 0.875em 0;
+      position: relative;
+      text-align: center;
+   }
+   p {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 22 / 16 * 100%;
+   }
+   &__cross {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      @include flex(center, center);
+      width: 30px;
+      height: 30px;
+      &::before,
+      &::after {
+         content: '';
+         width: 15px;
+         height: 1px;
+         border-radius: 1px;
+         background: $white;
+         display: inline-block;
+         position: absolute;
+      }
+      &::before {
+         transform: rotate(45deg);
+      }
+      &::after {
+         transform: rotate(-45deg);
+      }
+   }
+   &.close_ {
+      transform: translate(0, -100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+   }
+}
