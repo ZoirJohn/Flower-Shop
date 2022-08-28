@@ -76,7 +76,6 @@ footer {
 .header__top-nav {
   background: #f2f3f5;
 }
-
 .warning {
   color: #fff;
   transition: transform 400ms ease 0s, opacity 0s ease 401ms, visibility 0s ease 401ms;
@@ -191,7 +190,7 @@ footer {
 .contacts__links a {
   transition: all 400ms ease;
 }
-@media (max-width: 767) {
+@media (min-width: 767px) {
   .contacts__links a:hover {
     transform: scale(1.2);
   }
@@ -250,4 +249,39 @@ footer {
 }
 .dropdown li:hover {
   color: #0093a2;
+}
+
+.navigation {
+  width: 100%;
+  background: #fff;
+}
+.navigation__container {
+  padding: 1.25em 0;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 1.25em;
+}
+.navigation__logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation__form {
+  display: flex;
+}
+.navigation__form input {
+  outline: none;
+}
+.navigation__contacts {
+  display: flex;
+}
+.navigation__contacts .navigation__dropdown {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.navigation .ml {
+  display: none;
 }

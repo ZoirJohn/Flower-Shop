@@ -37,4 +37,9 @@ $smallPhone: 320;
    align-items: $y;
    justify-content: $x;
 }
+@mixin grid($cols, $rows) {
+   display: grid;
+   grid-template-columns: $cols;
+   grid-template-rows: $rows;
+}
 // font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320))); CSS

@@ -1,10 +1,15 @@
 .header {
    width: 100%;
+
    &__warning {
       background: #ff8642;
    }
+
    &__top-nav {
       background: #f2f3f5;
+   }
+
+   &__navigation {
    }
 }
 
@@ -14,16 +19,19 @@
    transition: transform 400ms ease 0s, opacity 0s ease 401ms, visibility 0s ease 401ms;
    position: absolute;
    width: 100%;
+
    &__container {
       padding: 0.875em 0;
       position: relative;
       text-align: center;
    }
+
    p {
       font-weight: 400;
       font-size: 1rem;
       line-height: 22 / 16 * 100%;
    }
+
    &__cross {
       display: block;
       position: absolute;
@@ -33,6 +41,7 @@
       @include flex(center, center);
       width: 30px;
       height: 30px;
+
       &::before,
       &::after {
          content: '';
@@ -43,13 +52,16 @@
          display: inline-block;
          position: absolute;
       }
+
       &::before {
          transform: rotate(45deg);
       }
+
       &::after {
          transform: rotate(-45deg);
       }
    }
+
    &.close_ {
       transform: translate(0, -100%);
       opacity: 0;
@@ -63,9 +75,11 @@
    margin: 0 0 0;
    width: 100%;
    transition: all 400ms ease 0s;
+
    &.paddingTop_ {
       padding: 3.125em 0 0 0;
    }
+
    &__container {
       @include flex(center, space-between);
       padding-top: 0.9375em;
@@ -76,6 +90,7 @@
       img {
          margin: 0 0.75em 0 0;
       }
+
       p {
          display: flex;
          font-weight: 400;
@@ -103,6 +118,7 @@
       line-height: 20px/14px * 100%;
       font-family: 'TTNorms';
       transition: all 1000ms ease;
+
       @media (min-width: ($tablet+px)) {
          &:hover {
             color: $black;
@@ -114,12 +130,15 @@
 .contacts {
    @include flex(center, flex-start);
    @include adaptive-value-tablet(column-gap, 32, 20);
+
    &__links {
       @include flex(center, center);
       gap: 0 0.9375em;
+
       a {
          transition: all 400ms ease;
-         @media (max-width: $tablet) {
+
+         @media (min-width: ($tablet+px)) {
             &:hover {
                transform: scale(1.2);
             }
@@ -132,9 +151,10 @@
       gap: 0 0.625em;
    }
 }
-
+// Dropdown
 .dropdown {
    position: relative;
+
    &:hover {
       .dropdown-menu {
          pointer-events: all;
@@ -143,12 +163,15 @@
          padding: 19px 0 0 0;
       }
    }
+
    a {
       display: flex;
+
       img {
          height: 18.8px;
       }
    }
+
    &-menu {
       pointer-events: none;
       opacity: 0;
@@ -171,16 +194,69 @@
       color: $grey;
       cursor: pointer;
       transition: all 400ms ease;
+
       &:last-child {
          padding-bottom: 1.25em;
          border-radius: 0 0 10px 10px;
       }
+
       &:first-child {
          padding-top: 1.25em;
          border-radius: 10px 10px 0 0;
       }
+
       &:hover {
          color: $blue;
       }
    }
+}
+
+//! Navigation !//
+.navigation {
+   width: 100%;
+   background: #fff;
+
+   &__container {
+      padding: 1.25em 0;
+      border: 1px solid #000;
+      @include flex(center, space-between);
+      gap: 0 1.25em;
+   }
+
+   &__logo {
+      @include flex(center, space-between);
+   }
+
+   &__form {
+      display: flex;
+      input {
+         outline: none;
+      }
+   }
+
+   &__contacts {
+      display: flex;
+      .navigation__dropdown {
+         @include grid(1fr, 1fr 1fr);
+      }
+   }
+
+   &__dropdown {
+   }
+
+   &__rest {
+   }
+
+   &__basket-amount {
+   }
+
+   &__price {
+   }
+
+   .ml {
+      display: none;
+   }
+}
+
+.dropdown-item {
 }
