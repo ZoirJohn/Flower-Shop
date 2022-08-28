@@ -6,27 +6,67 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Lavka Roz</title>
       <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/fonts.css" />
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
    </head>
    <body>
       <div class="wrapper">
          <header class="header">
-				<div class="header__warning warning">
-					<div class="warning__container">
-						<p>Сумма минимального заказа 1000 ₽</p>
-						<a href="#" class="warning__cross"></a>
-					</div>
-				</div>
+            <div class="header__warning warning">
+               <div class="warning__container">
+                  <p>Сумма минимального заказа 1000 ₽</p>
+                  <a href="#" class="warning__cross"></a>
+               </div>
+            </div>
+
+            <div class="header__top-nav top-nav paddingTop_">
+               <div class="top-nav__container">
+                  <div class="top-nav__clock">
+                     <p><img src="img/header/clock.svg" alt="Clock" />Пн-Сб: 8:00–20:00 Вс: 9:00–20:00</p>
+                  </div>
+                  <nav class="top-nav__nav navbar">
+                     <ul class="navbar__menu">
+                        <li class="navbar__item"><a href="#" class="navbar__link">Доставка</a></li>
+                        <li class="navbar__item"><a href="#" class="navbar__link">Оплата</a></li>
+                        <li class="navbar__item" data-da=".dropdown-menu,992,3"><a href="#" class="navbar__link" >Отзывы</a></li>
+                        <li class="navbar__item" data-da=".dropdown-menu,892,3"><a href="#" class="navbar__link"  >Блог</a></li>
+                        <li class="navbar__item dropdown">
+                           <a href="#" class="navbar__link">Информация<img src="img/header/arrow.svg" alt="Icon" /></a>
+                           <ul class="dropdown-menu">
+                              <li class="dropdown-item">Гарантии</li>
+                              <li class="dropdown-item active_">Вопрос и ответ</li>
+                              <li class="dropdown-item">Корпоративным клиентам</li>
+                              <li class="dropdown-item">О компании</li>
+                           </ul>
+                        </li>
+                        <li class="navbar__item" data-da=".dropdown-menu,820,3"><a href="#" class="navbar__link" >Контакты</a></li>
+                     </ul>
+                  </nav>
+                  <div class="top-nav__contacts contacts">
+                     <div class="contacts__links">
+                        <a href="#"><img src="img/header/vk.svg" alt="VK" /></a>
+                        <a href="#"><img src="img/header/instagram.svg" alt="Instagram" /></a>
+                     </div>
+                     <a href="#" class="contacts__orders">
+                        <img src="img/header/customer.svg" alt="Customer" />
+								Мои заказы
+                     </a>
+                  </div>
+               </div>
+            </div>
+
             <div class="header__navigation">
                <div class="header__container">
-                  <div class="header__rest"></div>
-                  <div class="header__logo"></div>
+                  <div class="header__logo">
+                     <img src="img/header/logo.svg" alt="Logo" />
+                  </div>
                   <div class="header__burger"></div>
                   <nav class="header__nav nav">
                      <ul class="nav__menu">
                         <li class="nav__item"><a href="" class="nav__link"></a></li>
                      </ul>
                   </nav>
+                  <div class="header__rest"></div>
                </div>
             </div>
          </header>

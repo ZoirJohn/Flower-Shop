@@ -13,8 +13,10 @@
 // }
 
 const lessThanButton = document.querySelector('.warning__cross');
+const topNavbar = document.querySelector('.top-nav');
 lessThanButton.addEventListener('click', function (e) {
    e.preventDefault();
    const warning = lessThanButton.closest('.warning');
-   warning.classList.toggle('close_');
+   warning.classList.add('close_');
+   topNavbar.classList.remove('paddingTop_');
 });

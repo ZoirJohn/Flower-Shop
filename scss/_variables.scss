@@ -1,8 +1,11 @@
 // $primary:;
 // $secondary:;
 $white: #fff;
+$black: #1b1c21;
+$grey: #505567;
+$blue: #0093a2;
 
-$container: 1170;
+$container: 1200;
 
 $laptop: 1024px;
 $bigTablet: 992;
@@ -29,9 +32,9 @@ $smallPhone: 320;
    #{$value}: calc(#{$mobileSize + px} + #{$addSize} * ((100vw - #{$smallMaxWidth+px}) / #{$maxWidth}));
 }
 
-@mixin flex($y,$x) {
-	display: flex;
-	align-items: $y;
-	justify-content: $x;
+@mixin flex($y, $x) {
+   display: flex;
+   align-items: $y;
+   justify-content: $x;
 }
 // font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320))); CSS
