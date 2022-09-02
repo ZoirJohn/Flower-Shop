@@ -82,8 +82,8 @@
 
    &__container {
       @include flex(center, space-between);
-      padding-top: 0.9375em;
-      padding-bottom: 0.9375em;
+      padding-top: 0.6875em;
+      padding-bottom: 0.6875em;
    }
 
    &__clock {
@@ -154,13 +154,19 @@
 // Dropdown
 .dropdown {
    position: relative;
-
    &:hover {
+      img {
+         transform: rotate(180deg);
+         transition: 400ms ease;
+      }
       .dropdown-menu {
          pointer-events: all;
          opacity: 1;
          visibility: visible;
-         padding: 19px 0 0 0;
+         padding: 0.85em 0 0 0;
+         &::before {
+            top: 15px;
+         }
       }
    }
 
@@ -169,6 +175,7 @@
 
       img {
          height: 18.8px;
+         transition: 400ms ease;
       }
    }
 
@@ -185,6 +192,20 @@
       left: -50%;
       width: 227.5%;
       transition: 400ms ease;
+      z-index: 1;
+      &::before {
+         content: '';
+         width: 100%;
+         height: 128px;
+         display: block;
+         position: absolute;
+         top: 46px;
+         left: 0;
+         z-index: -1;
+         box-shadow: 0px 0px 5px rgba(34, 42, 70, 0.1);
+         border-radius: 11px;
+         transition: 400ms ease;
+      }
    }
 
    li {
@@ -194,15 +215,19 @@
       color: $grey;
       cursor: pointer;
       transition: all 400ms ease;
+      border-right: 1px solid #f2f3f5;
+      border-left: 1px solid #f2f3f5;
 
       &:last-child {
          padding-bottom: 1.25em;
          border-radius: 0 0 10px 10px;
+         border-bottom: 1px solid #f2f3f5;
       }
 
       &:first-child {
          padding-top: 1.25em;
          border-radius: 10px 10px 0 0;
+         border-top: 1px solid #f2f3f5;
       }
 
       &:hover {
@@ -211,52 +236,140 @@
    }
 }
 
-//! Navigation !//
+// ! Navigation !//
 .navigation {
    width: 100%;
    background: #fff;
 
    &__container {
-      padding: 1.25em 0;
-      border: 1px solid #000;
-      @include flex(center, space-between);
-      gap: 0 1.25em;
+      padding-top: 0.9375em;
+      padding-bottom: 0.9375em;
+      @include flex(center, start);
+      flex-wrap: nowrap;
+      @include adaptive-value-tablet(gap, 30, 20);
+      @media (min-width: ($container + px)) {
+         gap: 0 1.875em;
+      }
    }
 
+   // Logo
    &__logo {
+      flex: 1 0 25.08%;
       @include flex(center, space-between);
+      @include adaptive-value-tablet(gap, 20, 0);
+      @media (min-width: ($container + px)) {
+         gap: 0 1.25em;
+      }
+      p {
+         font-size: 0.875rem;
+      }
    }
 
+   // Form
    &__form {
       display: flex;
+      width: 31.31%;
+      position: relative;
       input {
          outline: none;
+         width: 190%;
+         padding: 0.6875em 3.375em 0.6875em 1.25em;
+         border-radius: 3.75em;
+         border: 1px solid $border;
+         color: #7d818e;
+         line-height: 22px/16px * 100%;
+         font-family: 'TTNorms';
+         font-weight: 400;
+      }
+      img {
+         position: absolute;
+         right: 0;
+         right: 0.9375em;
+         top: 50%;
+         transform: translate(0, -50%);
       }
    }
 
+   // Contacts
    &__contacts {
       display: flex;
+      align-items: center;
+      gap: 0 0.9375em;
       .navigation__dropdown {
          @include grid(1fr, 1fr 1fr);
+         .dropdown-menu {
+            width: 170%;
+            left: 0;
+            cursor: pointer;
+            &:hover {
+               padding: 1.25em 0 0 0;
+            }
+            li {
+               font-weight: 400;
+               font-size: 14px;
+               line-height: 20px;
+               color: $font-color;
+            }
+         }
+      }
+      .navigation__number {
+         font-weight: 700;
+         font-size: 1rem;
+         line-height: 22px/16px * 100%;
+         color: $font-color;
+      }
+      & > a {
+         // border: 1px solid #000;
+         padding: 0.8125em;
+         border-radius: 50%;
+         border: 1px solid $border;
+         img {
+            width: 18px;
+            display: block;
+         }
+         &:hover {
+            background: $border;
+         }
       }
    }
 
-   &__dropdown {
-   }
-
+   // Rest
    &__rest {
+      flex: 0 0 15.75%;
    }
-
    &__basket-amount {
    }
 
    &__price {
    }
-
-   .ml {
-      display: none;
-   }
 }
 
-.dropdown-item {
-}
+// .dropdown-item {
+// }
+// .header {
+
+// 	&__navigation {}
+// }
+
+// .navigation {
+
+// 	&__container {}
+
+// 	&__logo {}
+
+// 	&__form {}
+
+// 	&__contacts {}
+
+// 	&__dropdown {}
+
+// 	&__number {}
+
+// 	&__call {}
+
+// 	&__rest {}
+
+// 	&__basket-amount {}
+
+// 	&__price {}
+// }
