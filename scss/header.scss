@@ -150,6 +150,11 @@
       @include flex(center, center);
       gap: 0 0.625em;
    }
+   .burger {
+      display: none;
+      &__icon {
+      }
+   }
 }
 // Dropdown
 .dropdown {
@@ -254,15 +259,26 @@
 
    // Logo
    &__logo {
-      flex: 1 0 25.08%;
+      flex: 1 1 25.08%;
       @include flex(center, space-between);
       @include adaptive-value-tablet(gap, 20, 0);
       @media (min-width: ($container + px)) {
          gap: 0 1.25em;
       }
       p {
-         font-size: 0.875rem;
+         @include adaptive-manual(font-size, 11, 3, 820);
+         @media (min-width: ($container+px)) {
+            font-size: 0.875rem;
+         }
       }
+      @media (max-width: ($bigTablet+px)) {
+         flex: 0 1 auto;
+         p {
+            display: none;
+         }
+      }
+      // @media (max-width: ) {
+      // }
    }
 
    // Form
@@ -283,11 +299,20 @@
       }
       img {
          position: absolute;
-         right: 0;
          right: 0.9375em;
          top: 50%;
          transform: translate(0, -50%);
+        
       }
+      ._dynamic_adapt_ {
+         img {
+            position: static;
+         }
+      }
+				 @media (max-width: ($tablet+1px)) {
+				 	img{right: 2rem;}
+					input{padding-right: 3em;}
+				 }
    }
 
    // Contacts
@@ -301,22 +326,36 @@
             width: 170%;
             left: 0;
             cursor: pointer;
+            &::before {
+               height: 155px;
+               top: 48px;
+            }
             &:hover {
                padding: 1.25em 0 0 0;
+               &::before {
+                  top: 20px;
+               }
             }
             li {
                font-weight: 400;
                font-size: 14px;
                line-height: 20px;
                color: $font-color;
+               // background: #ffffff55;
             }
          }
       }
       .navigation__number {
          font-weight: 700;
-         font-size: 1rem;
          line-height: 22px/16px * 100%;
          color: $font-color;
+      }
+      .navigation__number,
+      .navigation__call {
+         @include adaptive-value-tablet(font-size, 16, 10);
+         @media (min-width: ($container+px)) {
+            font-size: 1rem;
+         }
       }
       & > a {
          // border: 1px solid #000;
@@ -335,41 +374,38 @@
 
    // Rest
    &__rest {
-      flex: 0 0 15.75%;
+      flex: 1 1 15.75%;
+      @include flex(center, space-between);
+      // gap: 0 1em;
+      position: relative;
+      a {
+         width: 44px;
+         height: 44px;
+         border: 1px solid $border;
+         @include flex(center, center);
+         border-radius: 50%;
+         &:hover {
+            background: $border;
+         }
+      }
    }
    &__basket-amount {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: $red;
+      @include flex(center, center);
+      border-radius: 50%;
+      color: $white;
+      font-size: 0.875rem;
+      top: 0;
+      left: 50%;
    }
 
    &__price {
+      color: $red;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 22px/16px * 100%;
    }
 }
-
-// .dropdown-item {
-// }
-// .header {
-
-// 	&__navigation {}
-// }
-
-// .navigation {
-
-// 	&__container {}
-
-// 	&__logo {}
-
-// 	&__form {}
-
-// 	&__contacts {}
-
-// 	&__dropdown {}
-
-// 	&__number {}
-
-// 	&__call {}
-
-// 	&__rest {}
-
-// 	&__basket-amount {}
-
-// 	&__price {}
-// }

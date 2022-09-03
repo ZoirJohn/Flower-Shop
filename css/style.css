@@ -205,7 +205,9 @@ img {
   justify-content: center;
   gap: 0 0.625em;
 }
-
+.contacts .burger {
+  display: none;
+}
 .dropdown {
   position: relative;
 }
@@ -300,7 +302,7 @@ img {
   }
 }
 .navigation__logo {
-  flex: 1 0 25.08%;
+  flex: 1 1 25.08%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -312,7 +314,20 @@ img {
   }
 }
 .navigation__logo p {
-  font-size: 0.875rem;
+  font-size: calc(3px + 8 * ((100vw - 820px) / 380));
+}
+@media (min-width: 1200px) {
+  .navigation__logo p {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 992px) {
+  .navigation__logo {
+    flex: 0 1 auto;
+  }
+  .navigation__logo p {
+    display: none;
+  }
 }
 .navigation__form {
   display: flex;
@@ -332,10 +347,20 @@ img {
 }
 .navigation__form img {
   position: absolute;
-  right: 0;
   right: 0.9375em;
   top: 50%;
   transform: translate(0, -50%);
+}
+.navigation__form ._dynamic_adapt_ img {
+  position: static;
+}
+@media (max-width: 768px) {
+  .navigation__form img {
+    right: 2rem;
+  }
+  .navigation__form input {
+    padding-right: 3em;
+  }
 }
 .navigation__contacts {
   display: flex;
@@ -352,8 +377,15 @@ img {
   left: 0;
   cursor: pointer;
 }
+.navigation__contacts .navigation__dropdown .dropdown-menu::before {
+  height: 155px;
+  top: 48px;
+}
 .navigation__contacts .navigation__dropdown .dropdown-menu:hover {
   padding: 1.25em 0 0 0;
+}
+.navigation__contacts .navigation__dropdown .dropdown-menu:hover::before {
+  top: 20px;
 }
 .navigation__contacts .navigation__dropdown .dropdown-menu li {
   font-weight: 400;
@@ -363,9 +395,18 @@ img {
 }
 .navigation__contacts .navigation__number {
   font-weight: 700;
-  font-size: 1rem;
   line-height: 137.5%;
   color: #222a46;
+}
+.navigation__contacts .navigation__number,
+.navigation__contacts .navigation__call {
+  font-size: calc(10px + 6 * ((100vw - 767px) / 433));
+}
+@media (min-width: 1200px) {
+  .navigation__contacts .navigation__number,
+.navigation__contacts .navigation__call {
+    font-size: 1rem;
+  }
 }
 .navigation__contacts > a {
   padding: 0.8125em;
@@ -380,5 +421,41 @@ img {
   background: #d0d2d7;
 }
 .navigation__rest {
-  flex: 0 0 15.75%;
+  flex: 1 1 15.75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.navigation__rest a {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d0d2d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.navigation__rest a:hover {
+  background: #d0d2d7;
+}
+.navigation__basket-amount {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #e2195b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.875rem;
+  top: 0;
+  left: 50%;
+}
+.navigation__price {
+  color: #e2195b;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 137.5%;
 }
