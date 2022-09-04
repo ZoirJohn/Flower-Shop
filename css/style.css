@@ -292,7 +292,7 @@ img {
   padding-bottom: 0.9375em;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   flex-wrap: nowrap;
   gap: calc(20px + 10 * ((100vw - 767px) / 433));
 }
@@ -321,7 +321,7 @@ img {
     font-size: 0.875rem;
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 1140px) {
   .navigation__logo {
     flex: 0 1 auto;
   }
@@ -331,6 +331,7 @@ img {
 }
 .navigation__form {
   display: flex;
+  align-items: center;
   width: 31.31%;
   position: relative;
 }
@@ -345,20 +346,22 @@ img {
   font-family: "TTNorms";
   font-weight: 400;
 }
-.navigation__form img {
+.navigation__form > img {
   position: absolute;
   right: 0.9375em;
   top: 50%;
   transform: translate(0, -50%);
 }
-.navigation__form ._dynamic_adapt_ img {
-  position: static;
-}
-@media (max-width: 768px) {
-  .navigation__form img {
-    right: 2rem;
+@media (max-width: 992px) {
+  .navigation__form {
+    gap: 1.25em;
+    width: 45%;
+  }
+  .navigation__form > img {
+    right: 0.8rem;
   }
   .navigation__form input {
+    width: 100%;
     padding-right: 3em;
   }
 }
@@ -393,6 +396,11 @@ img {
   line-height: 20px;
   color: #222a46;
 }
+@media (max-width: 768px) {
+  .navigation__contacts .navigation__dropdown {
+    display: none;
+  }
+}
 .navigation__contacts .navigation__number {
   font-weight: 700;
   line-height: 137.5%;
@@ -408,27 +416,35 @@ img {
     font-size: 1rem;
   }
 }
-.navigation__contacts > a {
-  padding: 0.8125em;
+@media (max-width: 992px) {
+  .navigation__contacts {
+    display: none;
+  }
+}
+.navigation ._dynamic-phone {
+  width: 44px;
+  height: 44px;
+  padding: 0.8em 0.8em;
   border-radius: 50%;
   border: 1px solid #d0d2d7;
 }
-.navigation__contacts > a img {
+.navigation ._dynamic-phone img {
   width: 18px;
-  display: block;
+  position: static;
 }
-.navigation__contacts > a:hover {
+.navigation ._dynamic-phone:hover {
   background: #d0d2d7;
 }
 .navigation__rest {
   flex: 1 1 15.75%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 0 1em;
   position: relative;
 }
 .navigation__rest a {
-  width: 44px;
+  flex: 0 0 44px;
   height: 44px;
   border: 1px solid #d0d2d7;
   display: flex;
@@ -451,7 +467,7 @@ img {
   color: #fff;
   font-size: 0.875rem;
   top: 0;
-  left: 50%;
+  right: 5.1em;
 }
 .navigation__price {
   color: #e2195b;
