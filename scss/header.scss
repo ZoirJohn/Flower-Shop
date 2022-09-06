@@ -240,12 +240,48 @@
       }
    }
 }
+// Burger
+.burger {
+   display: block;
+   flex: 0 0 22px;
+   height: 15px;
+	position: relative;
+   @media (min-width: ($tablet+px)) {
+      display: none;
+   }
+   &__icon {
+      width: 100%;
+      height: 2px;
+      border-radius: 2em;
+      background: $black;
+   }
+   &:before,
+   &:after,
+   &__icon {
+      width: 100%;
+      height: 2px;
+      border-radius: 2em;
+      background: $black;
+		display: inline-block;
+		position: absolute;
+   }
+	&__icon{
+		top: 50%;
+	}
+   &:before{
+		content: '';
+		top: 0;
+	}
+   &:after {
+      content: '';
+		bottom: 0;
+   }
+}
 
 // ! Navigation !//
 .navigation {
    width: 100%;
-	background: #fff;
-	
+   background: #fff;
    &__container {
       padding-top: 0.9375em;
       padding-bottom: 0.9375em;
@@ -256,7 +292,6 @@
          gap: 0 1.875em;
       }
    }
-
    // Logo
    &__logo {
       flex: 1 1 25.08%;
@@ -278,7 +313,6 @@
          }
       }
    }
-
    // Form
    &__form {
       display: flex;
@@ -314,7 +348,6 @@
          }
       }
    }
-
    // Contacts
    &__contacts {
       display: flex;
@@ -341,7 +374,6 @@
                font-size: 14px;
                line-height: 20px;
                color: $font-color;
-               // background: #ffffff55;
             }
          }
          @media (max-width: ($tablet+1px)) {
@@ -360,15 +392,14 @@
             font-size: 1rem;
          }
       }
-		@media (max-width: ($bigTablet+px)) {
-			display: none;
-		}
+      @media (max-width: ($bigTablet+px)) {
+         display: none;
+      }
    }
-
    //* Dynamic Adaptive Items
    ._dynamic-phone {
-		width: 44px;
-		height: 44px;
+      width: 44px;
+      height: 44px;
       padding: 0.8em 0.8em;
       border-radius: 50%;
       border: 1px solid $border;
@@ -381,7 +412,6 @@
          background: $border;
       }
    }
-
    // Rest
    &__rest {
       flex: 1 1 15.75%;
@@ -411,12 +441,11 @@
       top: 0;
       right: 5.1em;
    }
-
    &__price {
       color: $red;
       font-weight: 400;
       font-size: 1rem;
       line-height: 22px/16px * 100%;
-		// white-space: nowrap;
+      // white-space: nowrap;
    }
 }
